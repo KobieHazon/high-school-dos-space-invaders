@@ -1,0 +1,4 @@
+*.asm text eol=lf
+*.md text eol=lf
+Makefile text eol=lf
+*.bmp binary

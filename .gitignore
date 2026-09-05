@@ -1,0 +1,11 @@
+.DS_Store
+._*
+Thumbs.db
+*.com
+*.debug
+*.list
+*.symbol
+*.~asm
+*.doc
+*.docx
+*.pdf
