@@ -10,8 +10,9 @@ This historical project implements a Space Invaders-style game in 16-bit x86 ass
 
 - Era: high school, recovered from a 2015 project folder.
 - `SPACE_V1.asm`, `SPACE_V2.asm`, `TEST.asm`, and `MUSIC.asm` are the recovered project source snapshots.
-- The BMP files are the game-specific assets recovered alongside and referenced by the source.
+- The BMP files are the game-specific assets recovered alongside and referenced by the source. I created these game-specific bitmap assets.
 - No collaborator attribution was found in the recovered source or project metadata.
+- The bitmap files retain their original bytes. The assembly source uses LF line endings.
 
 ## Files
 
@@ -31,4 +32,4 @@ The check verifies the complete selected file set, basic bitmap structure, expec
 
 ## Omitted Recovered Material
 
-Compiled `.com` output, debugger/listing/symbol files, office documents, and course instructions were intentionally excluded. The original archive remains the local source of record.
+Compiled `.com` output, debugger/listing/symbol files, office documents, and course instructions were intentionally excluded. The original archive remains the local source of record. Resolve or replace the BMP assets' undocumented upstream imagery before any public release.
