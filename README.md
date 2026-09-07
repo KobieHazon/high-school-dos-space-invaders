@@ -9,17 +9,17 @@ This historical project implements a Space Invaders-style game in 16-bit x86 ass
 ## Provenance and Authorship
 
 - Era: high school, recovered from a 2015 project folder.
-- `SPACE_V1.asm`, `SPACE_V2.asm`, `TEST.asm`, and `MUSIC.asm` are the recovered project source snapshots.
+- `src/SPACE_V1.asm`, `src/SPACE_V2.asm`, `src/TEST.asm`, and `src/MUSIC.asm` are the recovered project source snapshots.
 - The BMP files are my own game-specific assets, recovered alongside and referenced by the source.
 - No collaborator attribution was found in the recovered source or project metadata.
 - The bitmap files retain their original bytes. The assembly source uses LF line endings.
 
 ## Files
 
-- `SPACE_V2.asm` is the latest recovered main game source.
-- `SPACE_V1.asm` is an earlier recovered version.
-- `TEST.asm` contains development experiments.
-- `MUSIC.asm` contains a PC-speaker music experiment.
+- `src/SPACE_V2.asm` is the latest recovered main game source.
+- `src/SPACE_V1.asm` is an earlier recovered version.
+- `src/TEST.asm` contains development experiments.
+- `src/MUSIC.asm` contains a PC-speaker music experiment.
 - `*.bmp` files are the screens loaded by the game.
 
 ## Validate
@@ -33,3 +33,12 @@ The check verifies the complete selected file set, basic bitmap structure, expec
 ## Omitted Recovered Material
 
 Compiled `.com` output, debugger/listing/symbol files, office documents, and course instructions were intentionally excluded. The original archive remains the local source of record.
+
+## Repository layout
+
+- `src/`: the main game versions and historical assembly experiments.
+- `assets/`: the seven original bitmap screens.
+- `scripts/`: validation and DOS staging helpers.
+- `build/dos/`: ignored, disposable staging output; never committed.
+
+Run `make stage` to copy the assembly and bitmap files together into `build/dos/` without changing their bytes. Mount that directory as the working drive of the separately configured DOS/assembler environment, then build and run there. The original assembly refers to bitmap basenames, so do not run the game from `src/` or the repository root. Staging is not a claim that assembly or interactive DOS execution has been validated.

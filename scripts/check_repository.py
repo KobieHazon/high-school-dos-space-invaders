@@ -15,6 +15,8 @@ BITMAP_FILES = {
     "mainmenu.bmp",
     "rules.bmp",
 }
+SOURCE_FILES = {"src/" + name for name in SOURCE_FILES}
+BITMAP_FILES = {"assets/" + name for name in BITMAP_FILES}
 REPOSITORY_FILES = (
     SOURCE_FILES
     | BITMAP_FILES
@@ -24,6 +26,7 @@ REPOSITORY_FILES = (
         "Makefile",
         "README.md",
         "scripts/check_repository.py",
+        "scripts/stage_dos.py",
     }
 )
 
@@ -42,7 +45,7 @@ if missing:
 actual_files = {
     path.relative_to(ROOT).as_posix()
     for path in ROOT.rglob("*")
-    if path.is_file() and ".git" not in path.parts
+    if path.is_file() and ".git" not in path.parts and "build" not in path.relative_to(ROOT).parts
 }
 unexpected = sorted(actual_files - REPOSITORY_FILES)
 if unexpected:
@@ -64,7 +67,7 @@ for marker in ["ORG 100H", "Int 10h", "mainmenu.bmp", "GAMEOVER.bmp"]:
         fail(f"Missing expected assembly marker: {marker}")
 
 for path in ROOT.rglob("*"):
-    if ".git" in path.parts or not path.is_file():
+    if ".git" in path.parts or "build" in path.relative_to(ROOT).parts or not path.is_file():
         continue
     rel = path.relative_to(ROOT).as_posix()
     if any(part.startswith("._") for part in path.parts) or path.name in {
