@@ -6,13 +6,11 @@ My high-school DOS assembly game.
 
 This historical project implements a Space Invaders-style game in 16-bit x86 assembly. It includes menu, story, rules, win/lose screens, keyboard input, bitmap rendering, scoring, enemy movement, shooting, and PC-speaker music experiments.
 
-## Provenance and Authorship
+## Project background
 
-- Era: high school, recovered from a 2015 project folder.
-- `src/SPACE_V1.asm`, `src/SPACE_V2.asm`, `src/TEST.asm`, and `src/MUSIC.asm` are the recovered project source snapshots.
-- The BMP files are my own game-specific assets, recovered alongside and referenced by the source.
-- No collaborator attribution was found in the recovered source or project metadata.
-- The bitmap files retain their original bytes. The assembly source uses LF line endings.
+I built this game in high school; the recovered project folder dates to 2015. `src/SPACE_V1.asm`, `src/SPACE_V2.asm`, `src/TEST.asm`, and `src/MUSIC.asm` preserve the source snapshots. I also created the seven bitmap screens in `assets/`.
+
+The bitmap files retain their original bytes. The assembly source uses LF line endings.
 
 ## Files
 
