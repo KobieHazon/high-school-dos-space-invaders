@@ -32,7 +32,7 @@ The image builds a pinned JWasm assembler and runs DOSBox on a virtual display w
 
 `scripts/build_dos.py` adapts the EMU8086 syntax for JWasm in a temporary build copy: it declares the code segment/CPU, places macros before their uses, normalizes procedure endings and the exit label, and treats an explanatory ellipsis as a comment. The assembly source snapshots are unchanged.
 
-This is a short gameplay test, not a complete playthrough or an audio-quality test. For interactive play, `make stage` places source and bitmaps together in `build/dos/`; use a DOS emulator and a compatible assembler. `make check` checks source and bitmap structure.
+This is a short gameplay test, not a complete playthrough or an audio-quality test. For interactive play, `make stage` places source and bitmaps together in `build/dos/`; use a DOS emulator and a compatible assembler.
 
 ## Repository layout
 

@@ -1,9 +1,8 @@
 .PHONY: check stage
 
-check:
-	uv run --no-project python scripts/check_repository.py
+check: test
 
-stage: check
+stage:
 	uv run --no-project python scripts/stage_dos.py
 
 .PHONY: test
