@@ -8,35 +8,40 @@ This historical project implements a Space Invaders-style game in 16-bit x86 ass
 
 ## Project background
 
-I built this game in high school; the recovered project folder dates to 2015. `src/SPACE_V1.asm`, `src/SPACE_V2.asm`, `src/TEST.asm`, and `src/MUSIC.asm` preserve the source snapshots. I also created the seven bitmap screens in `assets/`.
+I built this game in high school; the project folder dates to 2015. `src/SPACE_V1.asm`, `src/SPACE_V2.asm`, `src/TEST.asm`, and `src/MUSIC.asm` preserve the source snapshots. I also created the seven bitmap screens in `assets/`.
 
 The bitmap files retain their original bytes. The assembly source uses LF line endings.
 
 ## Files
 
-- `src/SPACE_V2.asm` is the latest recovered main game source.
-- `src/SPACE_V1.asm` is an earlier recovered version.
+- `src/SPACE_V2.asm` is the latest main game source.
+- `src/SPACE_V1.asm` is an earlier version.
 - `src/TEST.asm` contains development experiments.
 - `src/MUSIC.asm` contains a PC-speaker music experiment.
 - `*.bmp` files are the screens loaded by the game.
 
-## Validate
+## Build and test
+
+Install Docker and run:
 
 ```sh
-make check
+make test
 ```
 
-The check verifies the complete selected file set, basic bitmap structure, expected assembly markers, and the absence of private or generated artifacts. It does not claim a runtime pass: faithful execution still requires compatible 16-bit DOS assembly and interactive graphics, keyboard, mouse, and speaker emulation.
+The image builds a pinned JWasm assembler and runs DOSBox on a virtual display with networking disabled. The test assembles `SPACE_V2.asm`, checks that the menu and story bitmaps render, enters gameplay, and verifies right-arrow movement and shooting from the rendered frames.
 
-## Omitted Recovered Material
+`scripts/build_dos.py` adapts the EMU8086 syntax for JWasm in a temporary build copy: it declares the code segment/CPU, places macros before their uses, normalizes procedure endings and the exit label, and treats an explanatory ellipsis as a comment. The assembly source snapshots are unchanged.
 
-Compiled `.com` output, debugger/listing/symbol files, office documents, and course instructions were intentionally excluded. The original archive remains the local source of record.
+This is a short gameplay test, not a complete playthrough or an audio-quality test. For interactive play, `make stage` places source and bitmaps together in `build/dos/`; use a DOS emulator and a compatible assembler. `make check` checks source and bitmap structure.
 
 ## Repository layout
 
-- `src/`: the main game versions and historical assembly experiments.
-- `assets/`: the seven original bitmap screens.
-- `scripts/`: validation and DOS staging helpers.
-- `build/dos/`: ignored, disposable staging output; never committed.
+- `src/`: the main game versions and assembly experiments.
+- `assets/`: the seven bitmap screens.
+- `docs/`: the project report.
+- `scripts/`: assembly, emulator-test, and staging helpers.
+- `docker/`: the assembler/emulator environment.
 
-Run `make stage` to copy the assembly and bitmap files together into `build/dos/` without changing their bytes. Mount that directory as the working drive of the separately configured DOS/assembler environment, then build and run there. The original assembly refers to bitmap basenames, so do not run the game from `src/` or the repository root. Staging is not a claim that assembly or interactive DOS execution has been validated.
+## Project report
+
+[The project report](docs/project-report.pdf) covers the design, implementation, interface, and testing.

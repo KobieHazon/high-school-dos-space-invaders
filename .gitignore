@@ -10,3 +10,5 @@ Thumbs.db
 *.docx
 *.pdf
 /build/
+
+!/docs/project-report.pdf

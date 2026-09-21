@@ -25,8 +25,13 @@ REPOSITORY_FILES = (
         ".gitignore",
         "Makefile",
         "README.md",
+    "docs/project-report.pdf",
         "scripts/check_repository.py",
         "scripts/stage_dos.py",
+        "scripts/build_dos.py",
+        "scripts/test_dos.py",
+        "docker/Dockerfile",
+        ".dockerignore",
     }
 )
 
@@ -83,7 +88,6 @@ for path in ROOT.rglob("*"):
         ".~asm",
         ".doc",
         ".docx",
-        ".pdf",
     }:
         fail(f"Generated or private artifact should not be staged: {rel}")
 
